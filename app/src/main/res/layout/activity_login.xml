@@ -7,6 +7,13 @@
     android:orientation="vertical"
     android:padding="10dp" >
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:paddingBottom="@dimen/logo_padding"
+        android:src="@drawable/textlogowhite"/>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
