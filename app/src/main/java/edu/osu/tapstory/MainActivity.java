@@ -78,4 +78,15 @@ public class MainActivity extends Activity {
         startActivity(intent);
         finish();
     }
+    public void checkTaps(View v) {
+        Intent check = new Intent(this, CheckTaps.class);
+        startActivity(check);
+        finish();
+    }
+
+    public void newTap(View v) {
+        Intent check = new Intent(this, NewTap.class);
+        startActivity(check);
+        finish();
+    }
 }

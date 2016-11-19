@@ -11,4 +11,6 @@
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
     <string name="button">Check Taps</string>
+    <string name="taps">Begin a New Tap</string>
+    <string name="title_activity_new_tap">NewTap</string>
 </resources>
