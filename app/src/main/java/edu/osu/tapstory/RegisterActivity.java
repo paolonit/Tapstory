@@ -80,6 +80,9 @@ public class RegisterActivity extends Activity {
 
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                     registerUser(name, email, password);
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Please enter your details!", Toast.LENGTH_LONG)
