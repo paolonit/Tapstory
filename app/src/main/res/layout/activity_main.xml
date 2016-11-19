@@ -4,6 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="20dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btn_logut_bg"
+        android:text="@string/btn_logout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="52dp" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -11,17 +34,10 @@
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="@color/lbl_name"
-            android:textSize="24dp" />
+        android:id="@+id/linearLayout"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/email"
@@ -37,9 +53,10 @@
         android:id="@+id/button2"
         android:text="@string/taps"
         android:textAllCaps="false"
-        android:layout_above="@+id/btnLogout"
+        android:onClick="newTap"
+        android:layout_below="@+id/linearLayout"
         android:layout_alignEnd="@+id/linearLayout"
-        android:onClick="newTap"/>
+        android:layout_marginTop="43dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,30 +64,20 @@
         android:id="@+id/button"
         android:text="@string/button"
         android:textAllCaps="false"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout"
-        android:onClick="checkTaps"/>
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/btn_logut_bg"
-        android:text="@string/btn_logout"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:layout_marginTop="57dp"
-        android:layout_below="@+id/button"
-        android:layout_alignParentStart="true" />
+        android:onClick="checkTaps"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignStart="@+id/linearLayout" />
 
     <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textSize="20dp"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp" />
+        android:padding="10dp"
+        android:textColor="@color/lbl_name"
+        android:textSize="24dp"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
