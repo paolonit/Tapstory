@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
 
     private SQLiteHandler db;
     private SessionManager session;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,5 +90,18 @@ public class MainActivity extends Activity {
         Intent check = new Intent(this, NewTap.class);
         startActivity(check);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to exit.",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+
+            super.onBackPressed();
+        }
     }
 }
