@@ -204,8 +204,8 @@ public class LoginActivity extends Activity {
             backPressedTime = t;
             Toast.makeText(this, "Press back again to exit.",
                     Toast.LENGTH_SHORT).show();
-        } else {
-
+        }
+        else {
             super.onBackPressed();
         }
     }

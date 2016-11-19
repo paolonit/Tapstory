@@ -2,12 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
+        android:textColor="@color/bg_register"
         android:textSize="20dp"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
@@ -41,33 +43,12 @@
 
         <TextView
             android:id="@+id/email"
+            android:textColor="@color/bg_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp" />
 
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:text="@string/taps"
-        android:textAllCaps="false"
-        android:onClick="newTap"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_marginTop="43dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="@string/button"
-        android:textAllCaps="false"
-        android:onClick="checkTaps"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignStart="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/name"
@@ -79,5 +60,27 @@
         android:layout_marginTop="29dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:text="@string/taps"
+        android:textAllCaps="false"
+        android:onClick="newTap"
+        android:layout_marginBottom="52dp"
+        android:layout_above="@+id/btnLogout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="@string/button"
+        android:textAllCaps="false"
+        android:onClick="checkTaps"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignStart="@+id/linearLayout" />
 
 </RelativeLayout>

@@ -43,15 +43,9 @@ public class CheckTaps extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        long t = System.currentTimeMillis();
-        if (t - backPressedTime > 2000) {
-            backPressedTime = t;
-            Toast.makeText(this, "Press back again to exit.",
-                    Toast.LENGTH_SHORT).show();
-        } else {
-
-            super.onBackPressed();
-        }
+        Intent back = new Intent(this, MainActivity.class);
+        startActivity(back);
+        finish();
     }
 
     public void toMain(View v) {
