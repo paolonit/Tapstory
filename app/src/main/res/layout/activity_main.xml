@@ -38,7 +38,8 @@
         android:text="@string/taps"
         android:textAllCaps="false"
         android:layout_above="@+id/btnLogout"
-        android:layout_alignEnd="@+id/linearLayout" />
+        android:layout_alignEnd="@+id/linearLayout"
+        android:onClick="newTap"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -47,8 +48,8 @@
         android:text="@string/button"
         android:textAllCaps="false"
         android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout" />
-
+        android:layout_alignStart="@+id/linearLayout"
+        android:onClick="checkTaps"/>
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="fill_parent"
@@ -70,7 +71,6 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
-        android:onClick="checkTaps"/>
+        android:layout_marginTop="95dp" />
 
 </RelativeLayout>

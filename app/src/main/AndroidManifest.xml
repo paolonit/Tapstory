@@ -43,7 +43,8 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" />
-        <activity android:name=".CheckTaps"></activity>
+        <activity android:name=".CheckTaps" />
+        <activity android:name=".NewTap"></activity>
     </application>
 
 </manifest>
