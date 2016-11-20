@@ -51,7 +51,7 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewPlaces"></activity>
+        <activity android:name=".ViewPlaces" />
     </application>
 
 </manifest>
