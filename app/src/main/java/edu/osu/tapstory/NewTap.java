@@ -27,9 +27,13 @@ import edu.osu.tapstory.app.AppConfig;
 import edu.osu.tapstory.app.AppController;
 import edu.osu.tapstory.helper.DBHandler;
 import edu.osu.tapstory.helper.SessionManager;
+import edu.osu.tapstory.helper.UpdateHandler;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.lang.Integer.parseInt;
 
 
 public class NewTap extends AppCompatActivity {
@@ -39,11 +43,14 @@ public class NewTap extends AppCompatActivity {
     private static String Title = "";
 
     private ArrayList<String> messagesReceivedArray = new ArrayList<>();
+    private String lov_update = "";
+    private int nol_update = 0;
 
     //Text boxes to add and display our messages
     private TextView txtReceivedMessages;
     private NfcAdapter mNfcAdapter;
     private DBHandler db;
+    private UpdateHandler db1;
 
     private void showDialog() {
         if (!pDialog.isShowing())
@@ -85,7 +92,7 @@ public class NewTap extends AppCompatActivity {
 
                         ActionBar actionBar = getSupportActionBar();
                         actionBar.setTitle(Title);
-                        updateTextViews();
+
 
                         updateTextViews();
                         //db.addUser(name, email, uid, created_at);
@@ -157,6 +164,7 @@ public class NewTap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_tap);
         db = new DBHandler(getApplicationContext());
+        db1 = new UpdateHandler(getApplicationContext());
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -173,6 +181,78 @@ public class NewTap extends AppCompatActivity {
 
     }
 
+    private void grabData(final String email) {
+        // Tag used to cancel the request
+        String tag_string_req = "req_login";
+        showDialog();
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_UPDATE, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Login Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    // Check for error node in json
+                    if (!error) {
+
+                        // Now store the user in SQLite
+
+                        JSONObject user = jObj.getJSONObject("user");
+                        String id = user.getString("email");
+                        String lov = user.getString("locations_visited");
+                        int nol = user.getInt("number_of_locations");
+
+                        // Inserting row in users table
+
+
+                        lov_update = (lov);
+                        nol_update = nol;
+
+
+
+                        //db.addUser(name, email, uid, created_at);
+
+                    } else {
+                        // Error in login. Get the error message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Login Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", email);
+
+                return params;
+            }
+
+        };
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
 
     @Override
     public void onBackPressed() {
@@ -200,8 +280,28 @@ public class NewTap extends AppCompatActivity {
                     String string = new String(record.getPayload());
                     //Make sure we don't pass along our AAR (Android Application Record)
                     if (string.equals(getPackageName())) { continue; }
-                    pullData(string.substring((3)));
-                    //messagesReceivedArray.add(string);
+                    String ID = string.substring(3);
+                    pullData(ID);
+                    //HashMap<String, String> user = db.getUserDetails();
+                   // String email = user.get("email");
+                   // if(email != null){
+                        //grabData(email);
+                        StringBuilder temp_lov = new StringBuilder(lov_update);
+                        boolean found = false;
+                        while(temp_lov.length()>0){
+                            int temp_int = parseInt(temp_lov.substring(0,temp_lov.indexOf(";")).toString());
+                            if(temp_int == parseInt(ID)){
+                                found = true;
+                            }
+                            temp_lov.delete(0,temp_lov.indexOf(";"));
+                        }
+                        if(found == false){
+                            nol_update++;
+                            lov_update = lov_update + ID +";";
+
+                        }
+
+                   // }
                 }
                 Toast.makeText(this, "Received " + messagesReceivedArray.size() +
                         " Messages", Toast.LENGTH_LONG).show();

@@ -11,13 +11,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-
 import java.util.HashMap;
 
-public class DBHandler extends SQLiteOpenHelper {
+public class UpdateHandler extends SQLiteOpenHelper {
 
-    private static final String TAG = DBHandler.class.getSimpleName();
-
+    private static final String TAG = UpdateHandler.class.getSimpleName();
 
     // All Static variables
     // Database Version
@@ -27,29 +25,27 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "android_api";
 
     // Login table name
-    private static final String TABLE_USER = "location";
+    private static final String TABLE_USER = "user";
 
     // Login Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_LOV = "locations_visited";
+    private static final String KEY_NOL = "number_of_locations";
 
-
-    public DBHandler(Context context) {
+    public UpdateHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_LOC_TABLE = "CREATE TABLE " + TABLE_USER + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_DESCRIPTION + " TEXT," + ")";
-        db.execSQL(CREATE_LOC_TABLE);
+        String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
+                + KEY_EMAIL + " TEXT UNIQUE," + KEY_LOV + " TEXT,"
+                + KEY_NOL + " INTEGER ," + ")";
+        db.execSQL(CREATE_LOGIN_TABLE);
+
         Log.d(TAG, "Database tables created");
     }
-
-
 
     // Upgrading database
     @Override
@@ -59,6 +55,24 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // Create tables again
         onCreate(db);
+    }
+
+    /**
+     * Storing user details in database
+     * */
+    public void addUser(String email, String lov, String nol) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOV, lov); // Email
+        values.put(KEY_NOL, nol); // Email
+
+
+        // Inserting Row
+        long id = db.insert(TABLE_USER, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
     /**
@@ -73,9 +87,10 @@ public class DBHandler extends SQLiteOpenHelper {
         // Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
-            user.put("id", cursor.getString(1));
-            user.put("name", cursor.getString(2));
-            user.put("description", cursor.getString(3));
+            user.put("email", cursor.getString(1));
+            user.put("locations_visited", cursor.getString(2));
+            user.put("number_of_locations", cursor.getString(3));
+
         }
         cursor.close();
         db.close();
@@ -96,7 +111,5 @@ public class DBHandler extends SQLiteOpenHelper {
 
         Log.d(TAG, "Deleted all user info from sqlite");
     }
-
-
 
 }
