@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_column="2"
-                android:text=""
+                android:text="1"
                 android:textColor="@color/white"/>
         </TableRow>
         <TableRow
