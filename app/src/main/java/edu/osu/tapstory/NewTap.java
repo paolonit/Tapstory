@@ -58,7 +58,7 @@ public class NewTap extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_tap);
-
+        //R.layout.activity_new_tap
         txtReceivedMessages = (TextView) findViewById(R.id.txtMessagesReceived);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if(mNfcAdapter != null) {

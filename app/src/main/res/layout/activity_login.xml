@@ -5,14 +5,16 @@
     android:background="@color/bg_login"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp"
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:paddingBottom="@dimen/logo_padding"
-        android:src="@drawable/textlogowhite"/>
+        android:src="@drawable/textlogowhite"
+        android:layout_weight="0.27" />
 
     <LinearLayout
         android:layout_width="fill_parent"
