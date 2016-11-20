@@ -9,8 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.osu.tapstory.CheckTaps"
-    android:background="@color/input_login_hint">
-
+    android:background="@color/bg_login">
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -23,17 +22,43 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_column="1"
-                android:textColor="@color/input_login"/>
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/totalTaps"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="2"
+                android:text=""
+                android:textColor="@color/white"/>
         </TableRow>
         <TableRow
             android:layout_height="fill_parent"
             android:layout_width="fill_parent">
-        <TextView
-            android:text=""
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_column="1"
-            android:textColor="@color/input_login"/>
+            <TextView
+                android:text=""
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:padding="2dip" />
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text=""
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"/>
         </TableRow>
         <TableRow
             android:layout_width="fill_parent"
@@ -43,7 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_column="1"
-                android:textColor="@color/input_login"/>
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/totalPlaces"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="2"
+                android:text=""
+                android:textColor="@color/white"/>
         </TableRow>
         <TableRow
             android:layout_height="fill_parent"
@@ -53,11 +85,12 @@
                 android:layout_width="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/viewPlaces"
+                android:textColor="@color/white"
                 android:layout_column="1"
                 android:background="@null"
-                android:onClick="toPlaces"/>
+                android:onClick="toPlaces"
+                android:id="@+id/button2" />
 
         </TableRow>
     </TableLayout>
-
 </RelativeLayout>
