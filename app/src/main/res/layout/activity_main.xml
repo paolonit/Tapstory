@@ -9,7 +9,7 @@
         android:id="@+id/btnLogout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/btn_logut_bg"
+        android:background="@color/colorAccent"
         android:text="@string/btn_logout"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -19,14 +19,37 @@
         android:layout_marginBottom="52dp" />
 
     <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/lbl_name"
+        android:textSize="24dp"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:paddingBottom="@dimen/logo_padding"
+        android:src="@drawable/textlogowhite"
+        android:layout_weight="0.27"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/taps"
         android:id="@+id/textView2"
         android:textColor="@color/input_login"
-        android:layout_alignTop="@+id/button"
+        android:layout_marginBottom="18dp"
+        android:layout_alignBottom="@+id/button"
         android:layout_alignEnd="@+id/linearLayout"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_toEndOf="@+id/name" />
 
     <Button
         android:layout_width="wrap_content"
@@ -35,31 +58,9 @@
         android:text="@string/button"
         android:textAllCaps="false"
         android:onClick="checkTaps"
-        android:layout_marginBottom="58dp"
         android:layout_above="@+id/btnLogout"
-        android:layout_toStartOf="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textColor="@color/input_login"
-        android:textSize="30dp"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingBottom="@dimen/logo_padding"
-        android:src="@drawable/textlogowhite"
-        android:layout_weight="0.27"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_marginBottom="32dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -82,21 +83,26 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/lbl_name"
-        android:textSize="24dp"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp" />
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:id="@+id/textView"
+        android:layout_marginTop="52dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="to"
+        android:textColor="@color/white"
         android:id="@+id/textView3"
+        android:background="@color/colorPrimaryDark"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
