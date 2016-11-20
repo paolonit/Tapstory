@@ -51,7 +51,7 @@ public class NewTap extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-    private void checkLogin(final String id) {
+    private void pullData(final String id) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
         showDialog();
@@ -192,7 +192,7 @@ public class NewTap extends AppCompatActivity {
                     String string = new String(record.getPayload());
                     //Make sure we don't pass along our AAR (Android Application Record)
                     if (string.equals(getPackageName())) { continue; }
-                    checkLogin(string.substring((3)));
+                    pullData(string.substring((3)));
                     //messagesReceivedArray.add(string);
                 }
                 Toast.makeText(this, "Received " + messagesReceivedArray.size() +
