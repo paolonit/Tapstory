@@ -18,4 +18,5 @@
     <string name="places">Total Number of Places:</string>
     <string name="viewPlaces">Click here to view places tapped.</string>
     <string name="thePlaces">You have tapped the following places:</string>
+    <string name="divider">---------------------------------------------------------------------------------------</string>
 </resources>

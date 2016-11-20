@@ -72,7 +72,7 @@
         android:textColor="@color/input_login"
         android:layout_alignBottom="@+id/button"
         android:layout_alignEnd="@+id/linearLayout"
-        android:layout_toEndOf="@+id/name" />
+        android:layout_toEndOf="@+id/name"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
