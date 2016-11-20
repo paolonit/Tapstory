@@ -7,6 +7,7 @@ import android.nfc.NfcAdapter;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class NewTap extends AppCompatActivity {
     private long backPressedTime = 0;
     private ProgressDialog pDialog;
     private static final String TAG = RegisterActivity.class.getSimpleName();
+    private static String Title = "";
 
     private ArrayList<String> messagesReceivedArray = new ArrayList<>();
 
@@ -51,7 +53,7 @@ public class NewTap extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-    private void checkLogin(final String id) {
+    private void pullData(final String id) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
         showDialog();
@@ -79,6 +81,12 @@ public class NewTap extends AppCompatActivity {
 
                         // Inserting row in users table
                         messagesReceivedArray.add(description);
+                        Title = name;
+
+                        ActionBar actionBar = getSupportActionBar();
+                        actionBar.setTitle(Title);
+                        updateTextViews();
+
                         updateTextViews();
                         //db.addUser(name, email, uid, created_at);
 
@@ -120,7 +128,7 @@ public class NewTap extends AppCompatActivity {
     }
     private  void updateTextViews() {
 
-        txtReceivedMessages.setText("Messages Received:\n");
+        //txtReceivedMessages.setText("Messages Received:\n");
         //Populate our list of messages we have received
         if (messagesReceivedArray.size() > 0) {
             for (int i = 0; i < messagesReceivedArray.size(); i++) {
@@ -162,7 +170,7 @@ public class NewTap extends AppCompatActivity {
             Toast.makeText(this, "NFC not available on this device",
                     Toast.LENGTH_SHORT).show();
         }
-        updateTextViews();
+
     }
 
 
@@ -192,7 +200,7 @@ public class NewTap extends AppCompatActivity {
                     String string = new String(record.getPayload());
                     //Make sure we don't pass along our AAR (Android Application Record)
                     if (string.equals(getPackageName())) { continue; }
-                    checkLogin(string.substring((3)));
+                    pullData(string.substring((3)));
                     //messagesReceivedArray.add(string);
                 }
                 Toast.makeText(this, "Received " + messagesReceivedArray.size() +
