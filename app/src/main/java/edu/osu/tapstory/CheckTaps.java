@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.app.Activity;
@@ -33,6 +34,7 @@ import edu.osu.tapstory.app.AppController;
 import edu.osu.tapstory.helper.SQLiteHandler;
 import edu.osu.tapstory.helper.SessionManager;
 
+
 public class CheckTaps extends AppCompatActivity {
     private long backPressedTime = 0;
 
@@ -40,7 +42,13 @@ public class CheckTaps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_taps);
+        TextView taps = (TextView) findViewById(R.id.totalTaps);
+        taps.setText("3");
+        TextView places = (TextView) findViewById(R.id.totalPlaces);
+        places.setText("3");
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -48,6 +56,8 @@ public class CheckTaps extends AppCompatActivity {
         startActivity(back);
         finish();
     }
+
+
 
     public void toPlaces(View v) {
         Intent check = new Intent(this, ViewPlaces.class);

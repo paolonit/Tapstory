@@ -12,6 +12,8 @@ public class ViewPlaces extends AppCompatActivity {
         setContentView(R.layout.activity_view_places);
     }
 
+
+
     @Override
     public void onBackPressed() {
         Intent back = new Intent(this, CheckTaps.class);
