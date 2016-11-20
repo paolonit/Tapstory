@@ -18,17 +18,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="52dp" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/lbl_name"
-        android:textSize="24dp"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -39,48 +28,6 @@
         android:background="@color/colorPrimaryDark"
         android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/taps"
-        android:id="@+id/textView2"
-        android:textColor="@color/input_login"
-        android:layout_marginBottom="18dp"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_toEndOf="@+id/name" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="@string/button"
-        android:textAllCaps="false"
-        android:onClick="checkTaps"
-        android:layout_above="@+id/btnLogout"
-        android:layout_alignStart="@+id/linearLayout"
-        android:layout_marginBottom="32dp" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
-
-        <TextView
-            android:id="@+id/email"
-            android:textColor="@color/bg_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13dp" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
@@ -105,5 +52,58 @@
         android:background="@color/colorPrimaryDark"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="@string/button"
+        android:textAllCaps="false"
+        android:onClick="checkTaps"
+        android:layout_marginBottom="49dp"
+        android:layout_above="@+id/btnLogout"
+        android:layout_alignStart="@+id/linearLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/taps"
+        android:id="@+id/textView2"
+        android:textColor="@color/input_login"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_toEndOf="@+id/name" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="78dp">
+
+        <TextView
+            android:id="@+id/email"
+            android:textColor="@color/bg_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/lbl_name"
+        android:textSize="24dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
 
 </RelativeLayout>
