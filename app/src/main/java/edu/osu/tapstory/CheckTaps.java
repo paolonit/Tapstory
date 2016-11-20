@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Menu;
 import android.widget.Toast;
 
 import android.app.Activity;
@@ -48,8 +49,8 @@ public class CheckTaps extends AppCompatActivity {
         finish();
     }
 
-    public void toMain(View v) {
-        Intent check = new Intent(this, MainActivity.class);
+    public void toPlaces(View v) {
+        Intent check = new Intent(this, ViewPlaces.class);
         startActivity(check);
         finish();
     }

@@ -12,12 +12,52 @@
     android:background="@color/input_login_hint">
 
 
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/total"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textColor="@color/input_login"/>
+        </TableRow>
+        <TableRow
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+        <TextView
+            android:text=""
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:textColor="@color/input_login"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/places"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textColor="@color/input_login"/>
+        </TableRow>
+        <TableRow
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textAllCaps="false"
+                android:text="@string/viewPlaces"
+                android:layout_column="1"
+                android:background="@null"
+                android:onClick="toPlaces"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total number of Taps: "
-        android:textColor="@color/input_login"/>
-
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

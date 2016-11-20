@@ -14,4 +14,8 @@
     <string name="taps">Begin a New Tap by Tapping Your Phone to an NFC Tag.</string>
     <string name="title_activity_new_tap">NewTap</string>
     <string name="to">to</string>
+    <string name="total">Total Number of Taps:</string>
+    <string name="places">Total Number of Places:</string>
+    <string name="viewPlaces">Click here to view places tapped.</string>
+    <string name="thePlaces">You have tapped the following places:</string>
 </resources>
