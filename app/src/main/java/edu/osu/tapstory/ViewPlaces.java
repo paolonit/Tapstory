@@ -12,7 +12,7 @@ public class ViewPlaces extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_places);
         TextView places = (TextView) findViewById(R.id.listPlaces);
-        places.setText("3");
+        places.setText("Ohio Union");
     }
 
 

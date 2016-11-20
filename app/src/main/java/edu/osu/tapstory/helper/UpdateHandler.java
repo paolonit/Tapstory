@@ -41,7 +41,7 @@ public class UpdateHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_EMAIL + " TEXT UNIQUE," + KEY_LOV + " TEXT,"
-                + KEY_NOL + " INTEGER ," + ")";
+                + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
         Log.d(TAG, "Database tables created");
@@ -88,8 +88,8 @@ public class UpdateHandler extends SQLiteOpenHelper {
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
             user.put("email", cursor.getString(1));
-            user.put("locations_visited", cursor.getString(2));
-            user.put("number_of_locations", cursor.getString(3));
+            user.put("locations_visited", cursor.getString(3));
+            //user.put("number_of_locations", cursor.getString(10));
 
         }
         cursor.close();

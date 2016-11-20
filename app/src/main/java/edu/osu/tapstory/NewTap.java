@@ -26,6 +26,7 @@ import org.json.JSONObject;
 import edu.osu.tapstory.app.AppConfig;
 import edu.osu.tapstory.app.AppController;
 import edu.osu.tapstory.helper.DBHandler;
+import edu.osu.tapstory.helper.SQLiteHandler;
 import edu.osu.tapstory.helper.SessionManager;
 import edu.osu.tapstory.helper.UpdateHandler;
 
@@ -45,7 +46,7 @@ public class NewTap extends AppCompatActivity {
     private static String Title = "";
 
     private ArrayList<String> messagesReceivedArray = new ArrayList<>();
-    private String lov_update = "";
+    private String lov_update = "oh no";
     private int nol_update = 0;
 
     //Text boxes to add and display our messages
@@ -53,6 +54,7 @@ public class NewTap extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     private DBHandler db;
     private UpdateHandler db1;
+    private SQLiteHandler db2;
 
     private void showDialog() {
         if (!pDialog.isShowing())
@@ -167,6 +169,7 @@ public class NewTap extends AppCompatActivity {
         setContentView(R.layout.activity_new_tap);
         db = new DBHandler(getApplicationContext());
         db1 = new UpdateHandler(getApplicationContext());
+        db2 = new SQLiteHandler(getApplicationContext());
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -194,7 +197,7 @@ public class NewTap extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
                 hideDialog();
-
+                lov_update = "Ok sure";
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
@@ -204,16 +207,16 @@ public class NewTap extends AppCompatActivity {
 
                         // Now store the user in SQLite
 
-                        JSONObject user = jObj.getJSONObject("user");
+                        JSONObject user = jObj.getJSONObject("location_data");
                         String id = user.getString("email");
                         String lov = user.getString("locations_visited");
-                        int nol = user.getInt("number_of_locations");
+                        //int nol = user.getInt("number_of_locations");
 
                         // Inserting row in users table
 
 
-                        lov_update = (lov);
-                        nol_update = nol;
+                        lov_update = lov;
+                        //nol_update = nol;
 
 
 
@@ -282,19 +285,21 @@ public class NewTap extends AppCompatActivity {
                     String string = new String(record.getPayload());
                     //Make sure we don't pass along our AAR (Android Application Record)
                     if (string.equals(getPackageName())) { continue; }
-                   // String ID = string.substring(3);
-                    //pullData(ID);
-                    HashMap<String, String> user = db1.getUserDetails();
-                    String name = user.get("name");
+                    String ID = string.substring(3);
+                    pullData(ID);
+                    HashMap<String, String> user = db2.getUserDetails();
+
                     String email = user.get("email");
-                    messagesReceivedArray.add(email);
-                    updateTextViews();
-                   /** if(email != null){
-                        //grabData(email);
-                        StringBuilder temp_lov = new StringBuilder(lov_update);
+
+                    if(email != null){
+                        grabData(email);
+                        //messagesReceivedArray.add(nol_update+"");
+
+
+                        /**StringBuilder temp_lov = new StringBuilder(lov_update);
                         boolean found = false;
                         while(temp_lov.length()>0){
-                            int temp_int = parseInt(temp_lov.substring(0,temp_lov.indexOf(";")).toString());
+                            int temp_int = parseInt(temp_lov.substring(0,temp_lov.indexOf(",")).toString());
                             if(temp_int == parseInt(ID)){
                                 found = true;
                             }
@@ -304,9 +309,9 @@ public class NewTap extends AppCompatActivity {
                             nol_update++;
                             lov_update = lov_update + ID +";";
 
-                        }
+                        }**/
 
-                   }**/
+                   }
                 }
                 Toast.makeText(this, "Received " + messagesReceivedArray.size() +
                         " Messages", Toast.LENGTH_LONG).show();
