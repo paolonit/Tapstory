@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
         HashMap<String, String> user = db.getUserDetails();
 
         String name = user.get("name");
+        name = name.substring(name.lastIndexOf(',') + 1, name.length());
         String email = user.get("email");
 
         // Displaying the user details on the screen
