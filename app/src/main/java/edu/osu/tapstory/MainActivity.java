@@ -85,12 +85,7 @@ public class MainActivity extends Activity {
         startActivity(check);
         finish();
     }
-
-    public void newTap(View v) {
-        Intent check = new Intent(this, NewTap.class);
-        startActivity(check);
-        finish();
-    }
+    
 
     @Override
     public void onBackPressed() {
