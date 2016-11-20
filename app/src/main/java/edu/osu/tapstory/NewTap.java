@@ -31,7 +31,9 @@ import edu.osu.tapstory.helper.UpdateHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import static java.lang.Integer.parseInt;
 
@@ -280,11 +282,14 @@ public class NewTap extends AppCompatActivity {
                     String string = new String(record.getPayload());
                     //Make sure we don't pass along our AAR (Android Application Record)
                     if (string.equals(getPackageName())) { continue; }
-                    String ID = string.substring(3);
-                    pullData(ID);
-                    //HashMap<String, String> user = db.getUserDetails();
-                   // String email = user.get("email");
-                   // if(email != null){
+                   // String ID = string.substring(3);
+                    //pullData(ID);
+                    HashMap<String, String> user = db1.getUserDetails();
+                    String name = user.get("name");
+                    String email = user.get("email");
+                    messagesReceivedArray.add(email);
+                    updateTextViews();
+                   /** if(email != null){
                         //grabData(email);
                         StringBuilder temp_lov = new StringBuilder(lov_update);
                         boolean found = false;
@@ -301,7 +306,7 @@ public class NewTap extends AppCompatActivity {
 
                         }
 
-                   // }
+                   }**/
                 }
                 Toast.makeText(this, "Received " + messagesReceivedArray.size() +
                         " Messages", Toast.LENGTH_LONG).show();
