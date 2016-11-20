@@ -19,4 +19,14 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/textView4" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="None"
+        android:textColor="@color/input_login"
+        android:layout_marginTop="10dp"
+        android:id="@+id/listPlaces"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
