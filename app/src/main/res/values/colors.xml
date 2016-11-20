@@ -5,16 +5,17 @@
     <color name="colorAccent">#2ecc71</color>
 
     <color name="bg_login">#27ae60</color>
-    <color name="bg_register">#2e3237</color>
+    <color name="bg_register">#FFFFFF</color>
     <color name="bg_main">#428bca</color>
     <color name="white">#ffffff</color>
     <color name="input_login">#222222</color>
     <color name="input_login_hint">#999999</color>
     <color name="input_register">#888888</color>
-    <color name="input_register_bg">#3b4148</color>
+    <color name="input_register_bg">#ecf0f1</color>
     <color name="input_register_hint">#5e6266</color>
-    <color name="btn_login">#2c3e50</color>
-    <color name="btn_login_bg">#eceef1</color>
+    <color name="btn_register_bg">#2ecc71</color>
+    <color name="btn_login">#ffffff</color>
+    <color name="btn_login_bg">#2c3e50</color>
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
 </resources>
