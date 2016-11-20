@@ -16,7 +16,7 @@
         android:textSize="15sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="10dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,25 +53,19 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         android:text="@string/button"
         android:textAllCaps="false"
         android:onClick="checkTaps"
-        android:layout_marginBottom="49dp"
-        android:layout_above="@+id/btnLogout"
-        android:layout_alignStart="@+id/linearLayout" />
+        android:layout_marginBottom="5dp"
+        android:layout_above="@+id/btnLogout"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/taps"
-        android:id="@+id/textView2"
-        android:textColor="@color/input_login"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_toEndOf="@+id/name"/>
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -91,6 +85,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="@string/taps"
+            android:id="@+id/textView2"
+            android:textColor="@color/input_login"
+            android:layout_alignBottom="@+id/button"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_toEndOf="@+id/name"/>
 
     </LinearLayout>
 
